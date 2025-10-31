@@ -52,6 +52,19 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
   //Olhar esse
   test('deve verificar se while é nulo', ()=> { expect(mdc(5,0)).toBe(5); })
 
+  test('deve verificar se é menor ou igual ou maior que 1 no isPrimo', () => { 
+    expect(isPrimo(-1)).toBe(false); 
+    expect(isPrimo(1)).toBe(false);
+  })
+  test('deve verificar se é menor ou igual ou maior que 1 no isPrimo', () => { 
+    expect(isPrimo(2)).toBe(true); 
+    expect(isPrimo(3)).toBe(true);
+  })
+  test('número não primo retorna false', () => {
+    expect(isPrimo(4)).toBe(false);
+    expect(isPrimo(9)).toBe(false);
+  });
+
   // === Testes para o Bloco 2 (11-20) ===
   test('11. deve encontrar o valor máximo em um array', () => { expect(maximoArray([1, 50, 10])).toBe(50); });
   test('12. deve encontrar o valor mínimo em um array', () => { expect(minimoArray([10, 2, 100])).toBe(2); });
