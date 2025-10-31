@@ -25,6 +25,32 @@ describe('Suíte de Testes Fraca para 50 Operações Aritméticas', () => {
   test('8. deve calcular o fatorial de um número maior que 1', () => { expect(fatorial(4)).toBe(24); });
   test('9. deve calcular a média de um array com múltiplos elementos', () => { expect(mediaArray([10, 20, 30])).toBe(20); });
   test('10. deve somar um array com múltiplos elementos', () => { expect(somaArray([1, 2, 3])).toBe(6); });
+  //Feitos por mim
+  test('deve laçar erro ao dividir por zero', () => { expect(() => divisao(10, 0)).toThrow('Divisão por zero não é permitida.'); });
+  test('deve retornar o valor do resultado correto', () => { expect(divisao(10, 2)).toBe(5); expect(divisao(5, 2)).toBeCloseTo(2.5) });
+
+  test('deve verificar se n é < 0', () => { expect(() => raizQuadrada(-1)).toThrow('Não é possível calcular a raiz quadrada de um número negativo.'); });
+  test('deve verificar se n é = 0', () => { expect(raizQuadrada(0)).toBe(0); });
+
+  //Olhar esse
+  test('deve lançar erro para numero negativo no fatorial', () => { expect(() => fatorial(-5).toThrow('Fatorial não é definido para números negativos.'))})
+  test('deve verificar fatorial retornar 1 se n é 0 ou 1', () => {
+    expect(fatorial(0)).toBe(1);
+    expect(fatorial(1)).toBe(1);
+  });
+  test('deve fazer a verificação posição 5', () => { expect(fatorial(5)).toBe(120)})
+
+  test('deve verificar se numero.length está fazendo o calculo certo no mediaArray', () => { expect(mediaArray([2,4,6])).toBe(4);})
+  test('deve verificar se numero.length é igual a 0 no mediaArray', () => { expect(mediaArray([])).toBe(0);})
+
+  test('deve lançar erro se numero.length for < 0 no maximoArray', () => { expect(() => maximoArray([])).toThrow('Array vazio не possui valor máximo.');})
+  test('deve lançar erro se numero.length for < 0 no minimoArray', () => { expect(() => minimoArray([])).toThrow('Array vazio не possui valor mínimo.');})
+
+  test('deve verificar se é par', () => { expect(isPar(5)).toBe(false); })  
+  test('deve verificar se é impar', () => { expect(isImpar(4)).toBe(false); }) 
+
+  //Olhar esse
+  test('deve verificar se while é nulo', ()=> { expect(mdc(5,0)).toBe(5); })
 
   // === Testes para o Bloco 2 (11-20) ===
   test('11. deve encontrar o valor máximo em um array', () => { expect(maximoArray([1, 50, 10])).toBe(50); });
