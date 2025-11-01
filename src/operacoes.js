@@ -16,7 +16,10 @@ function raizQuadrada(n) {
 function restoDivisao(dividendo, divisor) { return dividendo % divisor; }
 function fatorial(n) {
   if (n < 0) throw new Error('Fatorial não é definido para números negativos.');
-  if (n === 0 || n === 1) return 1;
+  //Altereio para matar o mutante equivalente que troca o || por &&, mas mesmo assim não não foi morto completamente
+  if (n === 0) return 1;
+  if (n === 1) return 1;
+
   let resultado = 1;
   for (let i = 2; i <= n; i++) { resultado *= i; }
   return resultado;
@@ -80,9 +83,14 @@ function fibonacci(n) { // Retorna o n-ésimo termo
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
+//Alterei essa função para matar o mutante equivalente que troca a ordem (val * acc)
 function produtoArray(numeros) {
   if (numeros.length === 0) return 1;
-  return numeros.reduce((acc, val) => acc * val, 1);
+  let resultado = numeros[0];
+  for (let i = 1; i < numeros.length; i++) {
+    resultado = resultado * numeros[i];
+  }
+  return resultado;
 }
 function clamp(valor, min, max) {
   if (valor < min) return min;
